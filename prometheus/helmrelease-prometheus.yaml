@@ -15,7 +15,6 @@ spec:
   interval: 15m
   timeout: 5m
   releaseName: prometheus
-  createNamespace: true
   values:
     server:
       ingress:
