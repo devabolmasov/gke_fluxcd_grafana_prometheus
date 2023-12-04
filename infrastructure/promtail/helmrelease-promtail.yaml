@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: promtail
+  namespace: loki
+spec:
+  chart:
+    spec:
+      chart: promtail
+      version: 6.15.3
+      sourceRef:
+        kind: HelmRepository
+        name: promtail
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: promtail

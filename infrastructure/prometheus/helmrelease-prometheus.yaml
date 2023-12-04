@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: prometheus
+  namespace: prometheus
+spec:
+  chart:
+    spec:
+      chart: prometheus
+      version: 25.8.0
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: prometheus
+  values:
+    server:
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          kubernetes.io/tls-acme: 'true'
+        hosts:
+          - prometheus.domain.com
