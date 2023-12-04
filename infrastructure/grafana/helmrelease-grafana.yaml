@@ -40,7 +40,7 @@ spec:
           isDefault: false
     dashboards:
       default:
-        some-dashboard:
+        test-dashboard:
           json: |
             {
               "annotations": {
