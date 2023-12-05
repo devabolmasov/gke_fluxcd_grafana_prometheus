@@ -31,8 +31,12 @@ spec:
         folder: /tmp/dashboards/node_exporter
         watchMethod: WATCH
         resource: both
-      datasources:
-        enabled: true
-        label: grafana_datasource
-        watchMethod: WATCH
-        resource: both
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+        - name: Loki
+          type: loki
+          url: http://loki-gateway.monitoring.svc.cluster.local
+          access: proxy
+          isDefault: false

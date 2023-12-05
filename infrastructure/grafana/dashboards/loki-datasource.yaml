@@ -10,9 +10,9 @@ stringData:
     apiVersion: 1
       datasources:
         - name: Prometheus
-          type: Prometheus
-          url: http://prometheus.monitoring.svc.cluster.local
-          reloadURL: http://prometheus.monitoring.svc.cluster.local/api/admin/provisioning/datasources/reload
+          type: prometheus
+          url: http://grafana.monitoring.svc.cluster.local
+          reloadURL: http://grafana.monitoring.svc.cluster.local/api/admin/provisioning/datasources/reload
           access: proxy
           isDefault: true
           editable: false
