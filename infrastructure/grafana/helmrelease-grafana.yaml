@@ -31,16 +31,15 @@ spec:
         folder: /tmp/dashboards/node_exporter
         watchMethod: WATCH
         resource: both
-        reloadURL: "http://grafana.monitoring.svc.cluster.local/api/admin/provisioning/datasources/reload"
+      datasources:
+        enabled: true
+        label: grafana_datasource
+        watchMethod: WATCH
+        resource: both
     datasources:
       datasources.yaml:
         apiVersion: 1
         datasources:
-        - name: Prometheus
-          type: prometheus
-          url: http://prometheus-server.monitoring.svc.cluster.local
-          access: proxy
-          isDefault: true
         - name: Loki
           type: loki
           url: http://loki-gateway.monitoring.svc.cluster.local
