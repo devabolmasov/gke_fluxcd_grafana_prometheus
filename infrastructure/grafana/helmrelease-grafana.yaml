@@ -31,6 +31,8 @@ spec:
         folder: /tmp/dashboards/node_exporter
         watchMethod: WATCH
         resource: both
+      datasources:
+        enabled: false
     datasources:
       datasources.yaml:
         apiVersion: 1
