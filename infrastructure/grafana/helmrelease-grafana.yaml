@@ -24,6 +24,14 @@ spec:
         kubernetes.io/tls-acme: 'true'
       hosts:
         - grafana.domain.com
+    sidecar:
+      dashboards:
+        enabled: true
+        label: grafana_dashboard
+        folder: /tmp/dashboards/node_exporter
+        watchMethod: WATCH
+        resource: both
+        reloadURL: "http://grafana.monitoring.svc.cluster.local/api/admin/provisioning/datasources/reload"
     datasources:
       datasources.yaml:
         apiVersion: 1
