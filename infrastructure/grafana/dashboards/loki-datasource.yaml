@@ -4,15 +4,15 @@ metadata:
   namespace: monitoring
   name: grafana-datasources
   labels:
-    grafana_datasource: 'true' # default value for: sidecar.datasources.label
+    grafana_datasource: 'true'
 stringData:
-  prometheus-datasource.yaml: |-
+  prometheusloki.yaml: |-
     apiVersion: 1
       datasources:
         - name: Prometheus
           type: prometheus
-          url: http://grafana.monitoring.svc.cluster.local
-          reloadURL: "http://grafana.monitoring.svc.cluster.local/api/admin/provisioning/datasources/reload"
+          url: http://prometheus.monitoring.svc.cluster.local
+          reloadURL: "http://prometheus.monitoring.svc.cluster.local/api/admin/provisioning/datasources/reload"
           access: proxy
           isDefault: true
           editable: false
