@@ -12,7 +12,7 @@ data:
       - name: Prometheus
         type: prometheus
         editable: false
-        url: http://test.monitoring.svc.cluster.local
+        url: http://prometheus-server.monitoring.svc.cluster.local
         access: proxy
         isDefault: false
     
