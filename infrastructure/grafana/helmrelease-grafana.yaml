@@ -36,12 +36,3 @@ spec:
         label: grafana_datasource
         reloadUrl: http://grafana.mintoring.svc.cluster.local/api/admin/provisioning/datasources/reload
         skipReload: false
-    datasources:
-      datasources.yaml:
-        apiVersion: 1
-        datasources:
-        - name: Loki
-          type: loki
-          url: http://loki-gateway.monitoring.svc.cluster.local
-          access: proxy
-          isDefault: false
