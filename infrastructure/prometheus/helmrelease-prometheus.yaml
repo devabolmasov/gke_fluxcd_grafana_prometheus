@@ -24,12 +24,13 @@ spec:
           kubernetes.io/ingress.class: nginx
         hosts:
           - alerts.domain.com
-    server:
-      ingress:
-        enabled: true
-        ingressClassName: nginx
-        annotations:
-          kubernetes.io/ingress.class: nginx
-          kubernetes.io/tls-acme: 'true'
-        hosts:
-          - prometheus.domain.com
+    prometheus:
+      server:
+        ingress:
+          enabled: true
+          ingressClassName: nginx
+          annotations:
+            kubernetes.io/ingress.class: nginx
+            kubernetes.io/tls-acme: 'true'
+          hosts:
+            - prometheus.domain.com
