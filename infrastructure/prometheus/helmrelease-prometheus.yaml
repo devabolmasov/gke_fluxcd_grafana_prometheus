@@ -16,21 +16,14 @@ spec:
   timeout: 5m
   releaseName: prometheus
   values:
-    alertmanager:
-      ingress:
-        enabled: true
-        ingressClassName: nginx
-        annotations:
-          kubernetes.io/ingress.class: nginx
-        hosts:
-          - alerts.domain.com
-    prometheus:
-      server:
-        ingress:
-          enabled: true
-          ingressClassName: nginx
-          annotations:
-            kubernetes.io/ingress.class: nginx
-            kubernetes.io/tls-acme: 'true'
-          hosts:
-            - prometheus.domain.com
+    server:
+      service:
+        type: NodePort
+      #ingress:
+      #  enabled: true
+      #  ingressClassName: nginx
+      #  annotations:
+      #    kubernetes.io/ingress.class: nginx
+      #    kubernetes.io/tls-acme: 'true'
+      #  hosts:
+      #    - prometheus.domain.com
