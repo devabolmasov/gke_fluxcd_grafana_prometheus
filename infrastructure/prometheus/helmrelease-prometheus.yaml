@@ -17,13 +17,22 @@ spec:
   releaseName: prometheus
   values:
     server:
-      service:
-        type: NodePort
-      #ingress:
-      #  enabled: true
-      #  ingressClassName: nginx
-      #  annotations:
-      #    kubernetes.io/ingress.class: nginx
-      #    kubernetes.io/tls-acme: 'true'
-      #  hosts:
-      #    - prometheus.domain.com
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          kubernetes.io/tls-acme: 'true'
+        hosts:
+          - prometheus.domain.com
+    alertmanager:
+      ingress:
+        enabled: true
+        className: "nginx"
+        annotations:
+          kubernetes.io/ingress.class: nginx
+        hosts:
+          - host: alerts.domain.com
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
