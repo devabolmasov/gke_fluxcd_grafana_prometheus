@@ -62,7 +62,7 @@ spec:
           - name: Discord
             rules:
             - alert: TestDiscordAlert
-              expr: instance:node_memory_utilisation:ratio{instance="10.10.0.4:9100"} > 0.160
+              expr: node_memory_MemAvailable_bytes{instance="10.10.0.4:9100"} < 7000000000
               for: 1m
               labels:
                 severity: 'warning'
